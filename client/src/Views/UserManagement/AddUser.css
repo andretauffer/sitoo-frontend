@@ -1,0 +1,58 @@
+.categories {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+  padding-top: 15%;
+}
+
+.field {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  align-items: center;
+}
+
+.add-user {
+  align-self: center;
+}
+
+.close-icon {
+  position: fixed;
+  left: 6%;
+  top: 4%;
+  color: #296182;
+  font-size: 1.5em;
+}
+
+.data-card {
+  min-width: 30px;
+  width: 100%;
+  max-width: 250px;
+  min-height: 50px;
+  height: 60%;
+  box-shadow: 2px 2px 12px -5px rgba(209, 73, 67, 1);
+  background-color: #dedede;
+  border-radius: 5px;
+  padding: 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.delete-user {
+  position: fixed;
+  right: 6%;
+  top: 4%;
+  font: 1.2em depot-new-web, sans-serif;
+  color: #296182;
+}
+
+.edit-button {
+  font: 1em depot-new-web, sans-serif;
+  color: #296182;
+  align-self: center;
+  padding-left: 5px;
+}
