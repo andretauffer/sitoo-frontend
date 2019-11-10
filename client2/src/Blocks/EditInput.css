@@ -1,0 +1,32 @@
+.input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+  width: 60%;
+}
+
+.invalid-message {
+  font: 0.7em depot-new-web, sans-serif, italic;
+  position: absolute;
+  top: 70%;
+  color: #d14943;
+}
+
+#item-text {
+  font: 0.8em depot-new-web, sans-serif;
+  width: 60%;
+  height: 15px;
+  color: #1a3338;
+  overflow: visible;
+}
+
+.edit-input {
+  width: 60%;
+  height: 15px;
+  align-self: center;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  box-shadow: inset 1px 1px 13px -5px rgba(26, 51, 56, 1);
+}
