@@ -25,23 +25,6 @@
   font-size: 1.5em;
 }
 
-.data-card {
-  min-width: 30px;
-  width: 100%;
-  max-width: 250px;
-  min-height: 50px;
-  height: 60%;
-  box-shadow: 2px 2px 12px -5px rgba(209, 73, 67, 1);
-  background-color: #dedede;
-  border-radius: 5px;
-  padding: 2%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 10px;
-}
-
 .delete-user {
   position: fixed;
   right: 6%;

@@ -43,7 +43,7 @@ export default withFetch(
     ) : (
       <>
         <div className="input-wrapper">
-          <p id="item-text">{data}</p>
+          <p className="item-text">{data}</p>
         </div>
         <div className="edit-button" onClick={() => setEdit(true)}>
           <i className="fas fa-pen edit"></i>

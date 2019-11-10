@@ -1,13 +1,12 @@
 import React from "react";
 import EditInput from "../../Blocks/EditInput";
 
-export default ({ userData, deleteUser, setPopEdit, valid, ...props }) => (
+export default ({ userData, setPopEdit, valid, setPopConfirm, ...props }) => (
   <div className="data-card">
-    {console.log("valid", valid)}
     <div className="close-icon" onClick={() => setPopEdit(false)}>
       <i className="fas fa-times-circle "></i>
     </div>
-    <div className="delete-user" onClick={deleteUser}>
+    <div className="delete-user" onClick={setPopConfirm}>
       <i className="fas fa-trash-alt"></i>
     </div>
     <div className="user-image">

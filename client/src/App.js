@@ -8,6 +8,7 @@ import withFetch from "./HOC/withFetch";
 import "./App.css";
 import "./Views/MainLayout.css";
 import Logo from "./images/site-logo.svg";
+import Notifyer from "./Views/UserManagement/Notifyer";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/manufactorers/" component={Manufactorers} />
         <Route path="/products/" component={Products} />
       </Switch>
+      {/* <Notifyer>Server response</Notifyer> */}
     </Router>
   );
 }

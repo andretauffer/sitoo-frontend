@@ -11,11 +11,13 @@ export default Component => {
     setValid,
     emptyFieldsValidation,
     submitPermit,
+    notify,
     ...props
   }) => {
     const [users, setUsers] = useState([]);
     const [popEdit, setPopEdit] = useState(false);
     const [popAdd, setPopAdd] = useState(false);
+    const [popConfirm, setPopConfirm] = useState(false);
     const [page, setPage] = useState(1);
     const [selectedUsers, setSelectedUsers] = useState([]);
 
@@ -54,7 +56,8 @@ export default Component => {
       })
         .then(getUsers(page))
         .then(setUserData({ type: "reset" }))
-        .then(setPopEdit(false));
+        .then(setPopEdit(false))
+        .then(setPopConfirm(false));
     };
 
     const pagination = () => {
@@ -87,9 +90,38 @@ export default Component => {
         method: "POST",
         object: newUser
       })
+        .then(res => handleResponse(res))
         .then(getUsers(page))
         .then(setPopAdd(!popAdd))
         .then(setUserData({ type: "reset" }));
+    };
+
+    const handleResponse = res => {
+      switch (res.statuscode) {
+        case 400:
+          notify({ type: "show", value: res.errortext });
+          break;
+        case 401:
+          notify({
+            type: "show",
+            value: "Authorization failed. Please contact the staff"
+          });
+          break;
+        case 404:
+          notify({ type: "show", value: "Resourse not found" });
+          break;
+        case 429:
+          notify({
+            type: "show",
+            value: "Connection issues. Please try again in 5 minutes"
+          });
+          break;
+        case 200:
+          notify({ type: "show", value: "Operation successful" });
+          break;
+        default:
+          break;
+      }
     };
 
     const openAdd = () => {
@@ -103,7 +135,13 @@ export default Component => {
         path: `http://localhost:8088/https://api-sandbox.mysitoo.com/v2/accounts/90316/sites/1/users/${userData.userid}.json`,
         method: "PUT",
         object: { [update]: userData[update] }
-      }).then(getUsers(page));
+      })
+        .then(res =>
+          res === true
+            ? notify({ type: "show", value: "Operation successful" })
+            : handleResponse(res)
+        )
+        .then(getUsers(page));
     };
 
     const closeEdit = () => {
@@ -117,7 +155,8 @@ export default Component => {
       setSelectedUsers([...selectedUsers, userId]);
     };
 
-    const unselectUser = userId => {
+    const unselectUser = (e, userId) => {
+      e.stopPropagation();
       let newState = [];
       selectedUsers.forEach(el => (el !== userId ? newState.push(el) : null));
       setSelectedUsers(newState);
@@ -133,10 +172,20 @@ export default Component => {
           path: `http://localhost:8088/https://api-sandbox.mysitoo.com/v2/accounts/90316/sites/1/users/${id}.json`,
           method: "DELETE"
         })
+          .then(res => console.log(res))
           .then(getUsers(page))
           .then(setUserData({ type: "reset" }))
+          .then(setPopConfirm(false))
       );
     };
+
+    const cancelSelection = () => {
+      setSelectedUsers([]);
+      setPopConfirm(false);
+    };
+
+    const disableDeleteAllButton = () =>
+      selectedUsers.length !== 0 ? true : false;
 
     return (
       <Component
@@ -150,6 +199,8 @@ export default Component => {
         setPopEdit={closeEdit}
         popAdd={popAdd}
         setPopAdd={openAdd}
+        popConfirm={popConfirm}
+        setPopConfirm={setPopConfirm}
         onClickCard={onClickCard}
         onClickUpdate={onClickUpdate}
         deleteUser={deleteUser}
@@ -159,6 +210,8 @@ export default Component => {
         unselectUser={unselectUser}
         isSelected={isSelected}
         deleteSelected={deleteSelected}
+        cancelSelection={cancelSelection}
+        disableDeleteAllButton={disableDeleteAllButton}
         {...props}
       />
     );

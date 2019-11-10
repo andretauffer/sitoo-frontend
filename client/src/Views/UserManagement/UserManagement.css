@@ -48,6 +48,14 @@
   font: 1em depot-new-web, sans-serif;
 }
 
+.select-check {
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  font-size: 2em;
+  color: #296182;
+}
+
 @media (max-width: 900px) {
   .basic-info {
     text-align: start;

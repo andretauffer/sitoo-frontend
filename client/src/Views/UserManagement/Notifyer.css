@@ -1,0 +1,31 @@
+.notifyer {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  width: 20%;
+  height: 15%;
+  border: none;
+  border-radius: 10px;
+  background-color: #59b49f;
+  color: #296182;
+  box-shadow: 2px 2px 25px -5px rgba(209, 73, 67, 1);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  animation: notifyer 2s ease-in-out infinite alternate;
+}
+
+@keyframes notifyer {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40%);
+    opacity: 1;
+  }
+}

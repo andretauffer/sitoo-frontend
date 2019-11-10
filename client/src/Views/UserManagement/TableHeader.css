@@ -80,6 +80,23 @@
   right: 6%;
 }
 
+.input-wrapper {
+  width: 100%;
+}
+
+.confirm-message {
+  color: #1a3338;
+  font: 0.7em depot-new-web, sans-serif;
+}
+
+.confirm-cancel-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 90%;
+  justify-content: space-around;
+}
+
 @media (max-width: 768px) {
   .pagination {
     left: 40%;
@@ -92,5 +109,9 @@
   }
   .delete-selected {
     right: 10%;
+  }
+  .confirm-message {
+    width: 70%;
+    font: 1.2em depot-new-web, sans-serif;
   }
 }

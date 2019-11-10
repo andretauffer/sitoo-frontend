@@ -1,3 +1,13 @@
+.pop-up {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .overlay {
   position: fixed;
   background-color: #296182c9;
@@ -20,4 +30,43 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  min-width: 30px;
+  width: 100%;
+  max-width: 250px;
+  min-height: 50px;
+  height: 60%;
+  box-shadow: 2px 2px 12px -5px rgba(209, 73, 67, 1);
+  background-color: #dedede;
+  border-radius: 5px;
+  padding: 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.confirm-card {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  min-width: 30px;
+  width: 100%;
+  max-width: 250px;
+  min-height: 50px;
+  height: 30%;
+  box-shadow: 2px 2px 12px -5px rgba(209, 73, 67, 1);
+  background-color: #dedede;
+  border-radius: 5px;
+  padding: 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
 }

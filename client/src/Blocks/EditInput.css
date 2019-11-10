@@ -13,12 +13,13 @@
   color: #d14943;
 }
 
-#item-text {
+.item-text {
   font: 0.8em depot-new-web, sans-serif;
   width: 60%;
   height: 15px;
   color: #1a3338;
-  overflow: visible;
+  /* overflow-x: hidden; */
+  overflow-y: visible;
 }
 
 .edit-input {
