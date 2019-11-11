@@ -36,7 +36,7 @@ const mockProducts = () => {
 
 export default () => (
   <div>
-    <Table header="Products">
+    <Table header={<div className="table-title">Products</div>}>
       {mockProducts().map(product => (
         <Card key={product.id}>
           <div className="product">

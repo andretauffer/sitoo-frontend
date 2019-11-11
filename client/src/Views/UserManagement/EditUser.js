@@ -19,7 +19,7 @@ export default ({
     >
       <i className="fas fa-trash-alt"></i>
     </div>
-    <div className="user-image">
+    <div className="user-image edit">
       <i className="fas fa-user-astronaut "></i>
     </div>
     <div className="categories">

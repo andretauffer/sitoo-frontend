@@ -4,12 +4,12 @@ import Background from "./Views/Background";
 import UserManagement from "./Views/UserManagement/UserManagement";
 import Manufactorers from "./Views/Manufactorers/Manufactorers";
 import Products from "./Views/Products/Products";
-import withFetch from "./HOC/withFetch";
 import "./App.css";
 import "./Views/MainLayout.css";
 import Logo from "./images/site-logo.svg";
+import Menu from "./Views/Menu";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div className="App">
@@ -35,6 +35,7 @@ function App() {
           </header>
         </div>
       </div>
+      <Menu />
       <Switch>
         <Route exact path="/" component={UserManagement} />
         <Route path="/manufactorers/" component={Manufactorers} />
@@ -43,7 +44,3 @@ function App() {
     </Router>
   );
 }
-
-const EnhancedApp = withFetch(App);
-
-export default EnhancedApp;

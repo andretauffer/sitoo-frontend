@@ -3,18 +3,7 @@ import withFetch from "../HOC/withFetch";
 import "./EditInput.css";
 
 export default withFetch(
-  ({
-    fetcher,
-    data,
-    userData,
-    setUserData,
-    field,
-    getUsers,
-    type,
-    validated,
-    onClickUpdate,
-    ...props
-  }) => {
+  ({ data, setUserData, field, type, validated, onClickUpdate }) => {
     const [edit, setEdit] = useState(false);
 
     return edit ? (
@@ -30,15 +19,21 @@ export default withFetch(
             <p className="invalid-message">Invalid input</p>
           )}
         </div>
-        <div
-          className="edit-button"
-          onClick={() => {
-            onClickUpdate(field);
-            setEdit(false);
-          }}
-        >
-          <i className="fas fa-save edit"></i>
-        </div>
+        {validated ? (
+          <div
+            className="edit-button"
+            onClick={() => {
+              onClickUpdate(field);
+              setEdit(false);
+            }}
+          >
+            <i className="fas fa-save edit"></i>
+          </div>
+        ) : (
+          <div className="edit-button disabled">
+            <i className="fas fa-save edit"></i>
+          </div>
+        )}
       </>
     ) : (
       <>

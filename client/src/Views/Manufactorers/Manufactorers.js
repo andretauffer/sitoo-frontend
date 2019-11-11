@@ -25,7 +25,7 @@ const mockManufactorers = () => {
 
 export default () => (
   <div>
-    <Table header="Manufactorers">
+    <Table header={<div className="table-title">Manufactorers</div>}>
       {mockManufactorers().map(manufactorer => (
         <Card key={manufactorer.id}>
           <div className="manufactorer">

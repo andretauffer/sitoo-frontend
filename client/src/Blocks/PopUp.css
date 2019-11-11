@@ -8,10 +8,9 @@
   height: 100%;
 }
 
-.in-pop .card {
-  border: 1px solid red;
-  width: 1000px;
-  background-color: blue;
+.in-pop.card {
+  box-shadow: none;
+  background: transparent;
 }
 
 .overlay {
