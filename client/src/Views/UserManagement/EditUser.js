@@ -1,12 +1,16 @@
 import React from "react";
 import EditInput from "../../Blocks/EditInput";
 
-export default ({ userData, setPop, valid, parseDate, ...props }) => (
+export default ({
+  userData,
+  setPop,
+  valid,
+  parseDate,
+  closeEdit,
+  ...props
+}) => (
   <div className="data-card">
-    <div
-      className="close-icon"
-      onClick={() => setPop({ type: "hide", field: "edit" })}
-    >
+    <div className="close-icon" onClick={closeEdit}>
       <i className="fas fa-times-circle "></i>
     </div>
     <div

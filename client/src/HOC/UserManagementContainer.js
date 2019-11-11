@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const mockPpl = () => {
   const ppl = [];
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 32; i++) {
     ppl.push({
       namefirst: "test",
       namelast: "test",
@@ -79,6 +79,12 @@ export default Component => {
       setPop({ type: "pop", field: "edit" });
       setUserData({ type: "fillup", value: el });
       setValid({ type: "fillup" });
+    };
+
+    const closeEdit = () => {
+      setPop({ type: "hide", field: "edit" });
+      setUserData({ type: "reset" });
+      setValid({ type: "reset" });
     };
 
     const onChangeInput = ({ e, field, type }) => {
@@ -199,12 +205,6 @@ export default Component => {
             : handleResponse(res)
         )
         .then(getUsers(page));
-    };
-
-    const closeEdit = () => {
-      setUserData({ type: "reset" });
-      setValid({ type: "reset" });
-      setPop({ type: "hide", type: "edit" });
     };
 
     const selectUser = (e, userId) => {

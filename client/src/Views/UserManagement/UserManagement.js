@@ -8,6 +8,7 @@ import AddUser from "./AddUser";
 import TableHeader from "./TableHeader";
 import DeleteConfirm from "./DeleteConfirm";
 import Notifyer from "../../Blocks/Notifyer";
+import Button from "../../Blocks/Button";
 
 import HOC from "../../HOC/HOC";
 const {
