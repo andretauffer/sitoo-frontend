@@ -28,7 +28,7 @@ const manufactorers = [
 const mockProducts = () => {
   const products = [];
   for (let i = 0; i < 16; i++) {
-    const image = i > 10 ? images[i - 10] : images[i];
+    const image = i >= 8 ? images[i - 8] : images[i];
     products.push({ name: "product-test", id: i, image });
   }
   return products;

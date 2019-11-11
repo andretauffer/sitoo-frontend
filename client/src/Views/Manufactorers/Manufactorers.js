@@ -17,7 +17,7 @@ const manufactorers = [
 const mockManufactorers = () => {
   const manufactorArray = [];
   for (let i = 0; i < 16; i++) {
-    const image = i > 10 ? manufactorers[i - 10] : manufactorers[i];
+    const image = i >= 8 ? manufactorers[i - 8] : manufactorers[i];
     manufactorArray.push({ name: "manufactorer-test", id: i, image });
   }
   return manufactorArray;
