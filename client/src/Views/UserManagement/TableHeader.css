@@ -5,7 +5,7 @@
 
 .pagination {
   position: absolute;
-  top: 2%;
+  top: 20%;
   left: 30%;
   background-color: #d14943;
   border: none;
@@ -13,7 +13,7 @@
   box-shadow: inset 1px 1px 13px -5px rgba(26, 51, 56, 1);
   font: 0.7em depot-new-web, sans-serif;
   width: 60%;
-  height: 7%;
+  height: 60%;
   font-weight: bold;
   color: #dedede;
   z-index: 1;
@@ -37,7 +37,7 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   position: absolute;
-  top: 0;
+  align-self: center;
   left: 10%;
   width: 40%;
   overflow: hidden;
@@ -45,19 +45,19 @@
 
 #button-previous {
   position: absolute;
-  top: 0;
+  align-self: center;
   left: 3%;
 }
 
 #button-next {
   position: absolute;
-  top: 0;
+  align-self: center;
   left: 95%;
 }
 
 .end-of-the-line {
   position: absolute;
-  top: 0;
+  top: -10%;
   left: 80%;
   font-style: italic;
   font-weight: lighter;
@@ -72,13 +72,13 @@
 
 .add-user {
   position: absolute;
-  top: 3%;
+  top: 30%;
   right: 2%;
 }
 
 .delete-selected {
   position: absolute;
-  top: 3%;
+  top: 30%;
   right: 6%;
 }
 
@@ -103,7 +103,6 @@
     font-size: 0.5em;
     width: 60%;
     left: 25%;
-    height: 5%;
   }
   .table-title {
     font-size: 0.6em;
@@ -114,7 +113,6 @@
     font-style: italic;
   }
   #selected {
-    padding-right: 4%;
   }
 
   .delete-selected {
@@ -127,7 +125,6 @@
     left: 20%;
     padding-right: 6px;
     width: 60%;
-    height: 4%;
     font-size: 1em;
   }
 
@@ -142,12 +139,10 @@
   }
   .add-user {
     right: 2%;
-    top: 2%;
     font-size: 2em;
   }
   .delete-selected {
     right: 10%;
-    top: 2%;
     font-size: 2em;
   }
   .confirm-message {
@@ -158,7 +153,9 @@
 
 @media (max-width: 500px) {
   .pagination {
+    top: 35%;
     left: 5%;
+    height: 50%;
   }
 
   .delete-selected {
@@ -168,16 +165,28 @@
   .end-of-the-line {
     left: 60%;
     font-size: 0.9em;
-    top: -5%;
+    align-self: center;
   }
 
   .table-title {
-    top: -1%;
+    top: -15%;
     font-size: 1em;
     width: 50%;
   }
 
   #button-next {
+    align-self: center;
     left: 90%;
+  }
+  #button-previous {
+    align-self: center;
+  }
+  .pages-numbers {
+    align-self: center;
+    font-size: 0.8em;
+  }
+  #selected {
+    font-size: 1em;
+    transform: translateY(-30%);
   }
 }
