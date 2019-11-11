@@ -2,7 +2,7 @@ This is a single page application designed for the sitoo front-end test by me (A
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project root directory, you can run:
 
 ### `npm run client`
 
@@ -14,7 +14,7 @@ The page will reload if you make edits.<br />
 ### `npm run server`
 
 Runs the server in the development mode.<br />
-Open [http://localhost:8088](http://localhost:8088) to make requests in the browser or via postman.
+Open [http://localhost:8088](http://localhost:8088) to make requests in the browser or do it via postman.
 
 ### `Create Mock Users`
 
