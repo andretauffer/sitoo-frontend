@@ -99,16 +99,20 @@
 
 @media (max-width: 768px) {
   .pagination {
-    left: 40%;
+    left: 35%;
     padding-right: 6px;
     width: 40%;
     height: 5%;
   }
   .add-user {
-    right: 4%;
+    right: 2%;
+    top: 2%;
+    font-size: 2em;
   }
   .delete-selected {
-    right: 10%;
+    right: 12%;
+    top: 2%;
+    font-size: 2em;
   }
   .confirm-message {
     width: 70%;

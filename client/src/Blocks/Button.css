@@ -11,3 +11,7 @@ button:disabled {
   border: none;
   border-radius: 10px;
 }
+
+.create-mock-button {
+  height: 100px;
+}

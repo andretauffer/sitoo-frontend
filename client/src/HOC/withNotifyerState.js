@@ -30,16 +30,17 @@ export default Component => {
   const State = ({ ...props }) => {
     const [notifyer, dispatch] = useReducer(validationReducer, initialState);
 
-    useEffect(() => {
-      revert();
-    }, [notifyer]);
-
     const revert = () =>
       setTimeout(() => {
         dispatch({ type: "hide" });
-      }, 4000);
+      }, 6000);
 
-    return <Component notifyer={notifyer} notify={dispatch} {...props} />;
+    const fullCycle = ({ value }) => {
+      dispatch({ type: "show", value });
+      revert();
+    };
+
+    return <Component notifyer={notifyer} notify={fullCycle} {...props} />;
   };
   return State;
 };

@@ -56,6 +56,11 @@
   color: #296182;
 }
 
+.create-mock-button {
+  width: 10px;
+  height: 20px;
+}
+
 @media (max-width: 900px) {
   .basic-info {
     text-align: start;

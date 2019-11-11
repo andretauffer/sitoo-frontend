@@ -8,6 +8,12 @@
   height: 100%;
 }
 
+.in-pop .card {
+  border: 1px solid red;
+  width: 1000px;
+  background-color: blue;
+}
+
 .overlay {
   position: fixed;
   background-color: #296182c9;
@@ -19,31 +25,6 @@
   height: 100%;
   z-index: 10;
   border-radius: 10px;
-}
-
-.data-card {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  z-index: 11;
-  transform: translate(-55%, -50%);
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  min-width: 30px;
-  width: 100%;
-  max-width: 250px;
-  min-height: 50px;
-  height: 60%;
-  box-shadow: 2px 2px 12px -5px rgba(209, 73, 67, 1);
-  background-color: #dedede;
-  border-radius: 5px;
-  padding: 2%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 10px;
 }
 
 .confirm-card {

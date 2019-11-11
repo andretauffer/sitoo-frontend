@@ -1,17 +1,14 @@
 import React from "react";
 import "./TableHeader.css";
 import PopUp from "../../Blocks/PopUp";
-import Button from "../../Blocks/Button";
 import DeleteConfirm from "./DeleteConfirm";
 
 export default ({
   page,
   showPage,
   pagination,
-  setPopAdd,
-  popAdd,
-  popConfirm,
-  setPopConfirm,
+  setPop,
+  pop,
   disableDeleteAllButton,
   deleteSelected,
   ...props
@@ -55,20 +52,30 @@ export default ({
         </p>
       )}
     </div>
-    <div className="add-user" onClick={e => setPopAdd(!popAdd)}>
+    <div
+      className="add-user"
+      onClick={() => setPop({ type: "pop", field: "add" })}
+    >
       <i className="fas fa-plus-circle "></i>
     </div>
     {disableDeleteAllButton() ? (
-      <div className="delete-selected" onClick={() => setPopConfirm(true)}>
-        <i class="fas fa-user-times"></i>{" "}
+      <div
+        className="delete-selected"
+        onClick={() => {
+          setPop({ type: "pop", field: "deleteGroup" });
+        }}
+      >
+        <i className="fas fa-user-times"></i>{" "}
       </div>
     ) : null}
-    <PopUp pop={popConfirm} setPop={setPopConfirm} {...props}>
-      <DeleteConfirm
-        onClick={deleteSelected}
-        name="the selected users"
-        {...props}
-      />
+    <PopUp
+      pop={pop.deleteGroup}
+      setPop={() => setPop({ type: "hide", field: "deleteGroup" })}
+      {...props}
+    >
+      <DeleteConfirm onClick={deleteSelected} {...props}>
+        the selected users
+      </DeleteConfirm>
     </PopUp>
   </>
 );

@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "../../Blocks/Button";
 
-export default ({ cancelSelection, name, onClick }) => (
+export default ({ cancelSelection, children, onClick }) => (
   <div className="confirm-card">
     <div className="input-wrapper">
-      <p className="confirm-message">Are you sure you want to delete {name}?</p>
+      <p className="confirm-message">
+        Are you sure you want to delete {children}?
+      </p>
       <div className="confirm-cancel-wrapper">
         <Button className="confirmation-button" onClick={onClick}>
           Yes

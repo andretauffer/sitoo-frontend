@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import withFetch from "../HOC/withFetch";
+import React from "react";
 import "./EditInput.css";
 
 export default ({ data, setUserData, field, type, validated }) => {

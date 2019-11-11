@@ -7,6 +7,7 @@
   "scripts": {
     "client": "cd client && npm run start",
     "server": "cd cors-server && node cors-server.js",
+    "mock-users": "cd client && node CreateMockUsers.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -3,9 +3,12 @@ import Button from "../../Blocks/Button";
 import AddInput from "../../Blocks/AddInput";
 import "./AddUser.css";
 
-export default ({ userData, addUser, setPopAdd, valid, ...props }) => (
+export default ({ userData, addUser, setPop, valid, ...props }) => (
   <div className="data-card">
-    <div className="close-icon" onClick={e => setPopAdd(false)}>
+    <div
+      className="close-icon"
+      onClick={() => setPop({ type: "hide", field: "add" })}
+    >
       <i className="fas fa-times-circle "></i>
     </div>
 

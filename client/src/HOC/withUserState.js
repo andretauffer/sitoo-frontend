@@ -5,7 +5,9 @@ const initialState = {
   email: "",
   namefirst: "",
   namelast: "",
-  userid: ""
+  userid: "",
+  datecreated: 0,
+  datemodified: 0
 };
 
 const validationReducer = (state, action) => {
@@ -21,7 +23,9 @@ const validationReducer = (state, action) => {
         email: action.value.email,
         namefirst: action.value.namefirst,
         namelast: action.value.namelast,
-        userid: action.value.userid
+        userid: action.value.userid,
+        datecreated: action.value.datecreated,
+        datemodified: action.value.datemodified
       };
     case "reset":
       return {

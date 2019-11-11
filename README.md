@@ -15,3 +15,8 @@ The page will reload if you make edits.<br />
 
 Runs the server in the development mode.<br />
 Open [http://localhost:8088](http://localhost:8088) to make requests in the browser or via postman.
+
+### `Create Mock Users`
+
+Not really a npm script, but a button that is left commented out on line 108 of UserManagement.js
+It's sole purpose is generating mock data to test the design.

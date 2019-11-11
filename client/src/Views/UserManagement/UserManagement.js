@@ -1,5 +1,4 @@
 import React from "react";
-import HOC from "../../HOC/HOC";
 import Table from "../../Blocks/Table";
 import Card from "../../Blocks/Card";
 import PopUp from "../../Blocks/PopUp";
@@ -8,15 +7,17 @@ import EditUser from "./EditUser";
 import AddUser from "./AddUser";
 import TableHeader from "./TableHeader";
 import DeleteConfirm from "./DeleteConfirm";
-import Notifyer from "./Notifyer";
+import Notifyer from "../../Blocks/Notifyer";
 
+import HOC from "../../HOC/HOC";
 const {
   Composer,
   withFetch,
   UserManagementContainer,
   withUserState,
   withValidation,
-  withNotifyerState
+  withNotifyerState,
+  withPopState
 } = HOC;
 
 export default Composer(
@@ -24,36 +25,25 @@ export default Composer(
   withFetch,
   withUserState,
   withValidation,
-  withNotifyerState
+  withNotifyerState,
+  withPopState
 )(
   ({
     users,
+    pop,
+    setPop,
     onClickCard,
     loading,
-    popEdit,
-    setPopEdit,
-    popAdd,
-    setPopAdd,
-    popConfirm,
-    setPopConfirm,
     selectUser,
     unselectUser,
     isSelected,
     deleteUser,
+    createMockUsers,
     ...props
   }) => {
     return (
       <>
-        <Table
-          header={
-            <TableHeader
-              popAdd={popAdd}
-              setPopAdd={setPopAdd}
-              setPopConfirm={setPopConfirm}
-              {...props}
-            />
-          }
-        >
+        <Table header={<TableHeader pop={pop} setPop={setPop} {...props} />}>
           {users.length !== 0 ? (
             users.items.map((el, index) => (
               <Card key={index} onClick={() => onClickCard(el)}>
@@ -91,21 +81,32 @@ export default Composer(
               Loading users, it will only take a second! Or two...
             </p>
           )}
-          <PopUp pop={popEdit} setPop={setPopEdit} {...props}>
-            <EditUser
-              setPopEdit={setPopEdit}
-              setPopConfirm={setPopConfirm}
-              {...props}
-            />
+          <PopUp
+            pop={pop.edit}
+            setPop={() => setPop({ type: "hide", field: "edit" })}
+            {...props}
+          >
+            <EditUser setPop={setPop} {...props} />
           </PopUp>
-          <PopUp pop={popAdd} setPop={setPopAdd} {...props}>
-            <AddUser setPopAdd={setPopAdd} {...props} />
+          <PopUp
+            pop={pop.add}
+            setPop={() => setPop({ type: "hide", field: "add" })}
+            {...props}
+          >
+            <AddUser setPop={setPop} {...props} />
           </PopUp>
-          <PopUp pop={popConfirm} setPop={setPopConfirm} {...props}>
+          <PopUp
+            pop={pop.deleteOne}
+            setPop={() => setPop({ type: "hide", field: "deleteOne" })}
+            {...props}
+          >
             <DeleteConfirm onClick={deleteUser} name="user" {...props} />
           </PopUp>
         </Table>
         <Notifyer {...props}>Server response</Notifyer>
+        {/* <Button id="create-mock-button" onClick={createMockUsers}>
+          Create mock Users
+        </Button> */}
       </>
     );
   }

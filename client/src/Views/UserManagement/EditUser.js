@@ -1,12 +1,18 @@
 import React from "react";
 import EditInput from "../../Blocks/EditInput";
 
-export default ({ userData, setPopEdit, valid, setPopConfirm, ...props }) => (
+export default ({ userData, setPop, valid, parseDate, ...props }) => (
   <div className="data-card">
-    <div className="close-icon" onClick={() => setPopEdit(false)}>
+    <div
+      className="close-icon"
+      onClick={() => setPop({ type: "hide", field: "edit" })}
+    >
       <i className="fas fa-times-circle "></i>
     </div>
-    <div className="delete-user" onClick={setPopConfirm}>
+    <div
+      className="delete-user"
+      onClick={() => setPop({ type: "pop", field: "deleteOne" })}
+    >
       <i className="fas fa-trash-alt"></i>
     </div>
     <div className="user-image">
@@ -56,6 +62,14 @@ export default ({ userData, setPopEdit, valid, setPopConfirm, ...props }) => (
           validated={valid.email}
           {...props}
         />
+      </div>
+      <div className="date-stamp created">
+        <p className="date-label">Date created</p>
+        <p className="date-info">{parseDate(userData.datecreated)}</p>
+      </div>
+      <div className="date-stamp modified">
+        <p className="date-label">Date modified</p>
+        <p className="date-info">{parseDate(userData.datemodified)}</p>
       </div>
     </div>
   </div>
